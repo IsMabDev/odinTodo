@@ -1,13 +1,12 @@
 import { createHtmlElement } from "./management.js";
 import { projectsObjectList } from "./connection.js";
-import { createProject } from "./projects.js";
 
-function createProjectContainer() {
+function createProjectsContainer() {
   let projects = projectsObjectList;
   const asideContainer = document.querySelector("#asideContainer");
 
   // update the project container
-  const updatePojectContainer = () => {
+  const updatePojectsContainer = () => {
     const projectContainer = createHtmlElement("div", "projectsContainer");
     const titleProjectContainer = createHtmlElement("h1", null, null, "Lists");
     projectContainer.appendChild(titleProjectContainer);
@@ -15,6 +14,7 @@ function createProjectContainer() {
       const projectDiv = createHtmlElement("div", null, ["project"]);
       const projectIcon = createHtmlElement("img");
       projectIcon.alt = ".";
+      projectIcon.src = project.getObject()["icon"];
       const projectTitle = createHtmlElement(
         "h2",
         null,
@@ -27,7 +27,7 @@ function createProjectContainer() {
 
     asideContainer.appendChild(projectContainer);
   };
-  updatePojectContainer();
+  updatePojectsContainer();
 }
 
-export { createProjectContainer };
+export { createProjectsContainer };

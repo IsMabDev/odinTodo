@@ -42,12 +42,20 @@ body {
 #timeOrganisation li {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 #timeOrganisation img {
-  width: 20%;
+  background-color: transparent;
+
+  width: 40px;
 }
 .project {
   display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.project img {
+  width: 50px;
 }
 
 #tasksContainer {

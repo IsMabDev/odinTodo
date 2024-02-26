@@ -5,7 +5,9 @@ function createProject(
   values
 ) {
   let project = createObject(attributes, values);
-  project.setValue("tasks", []);
+  if (project.getObject()["tasks"] === "") {
+    project.getObject()["tasks"] = [];
+  }
   return project;
 }
 
