@@ -18,7 +18,7 @@ function createTasksContainer() {
   tasks.forEach((task) => {
     console.log("task: ", task);
 
-    const taskElement = createHtmlElement("div", null, ["task"], task["title"]);
+    const taskElement = createHtmlElement("h2", null, ["task"], task["title"]);
     tasksContainer.appendChild(taskElement);
   });
 
