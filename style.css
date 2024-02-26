@@ -1,0 +1,56 @@
+/* Initialisation */
+:root {
+  --font-color: #eee;
+  --font-color-dark: #aaa;
+  --border-color: #222;
+  --background-light: rgba(0, 0, 0, 50%);
+  --background-light-hover: rgba(99, 99, 99, 0.4);
+  --background-dark: rgba(0, 0, 0, 0.9);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6;
+}
+
+body {
+  min-height: 80vh;
+}
+/* Main */
+
+#main {
+  display: flex;
+  gap: 20px;
+  min-height: 100%;
+}
+#asideContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-height: 100%;
+  background-color: #f5f6f8;
+}
+
+#timeOrganisation li {
+  display: flex;
+  align-items: center;
+}
+#timeOrganisation img {
+  width: 20%;
+}
+.project {
+  display: flex;
+}
+
+#tasksContainer {
+  background-color: aquamarine;
+  width: 60%;
+}
