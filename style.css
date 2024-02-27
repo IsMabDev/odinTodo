@@ -17,7 +17,7 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 100%;
   line-height: 1.6;
 }
 
@@ -37,28 +37,79 @@ body {
   width: 30%;
   min-height: 100%;
   background-color: #f5f6f8;
+  padding: 40px 20px;
 }
 
 #timeOrganisation li {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 #timeOrganisation img {
-  background-color: transparent;
+  background-color: #ffffff;
 
-  width: 40px;
+  width: 30px;
 }
 .project {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 10px;
 }
 .project img {
-  width: 50px;
+  width: 30px;
+  background-color: #ffffff;
 }
-
+.projectTitle {
+  font-size: 1rem;
+}
 #tasksContainer {
-  background-color: aquamarine;
+  background-color: white;
   width: 60%;
+  padding: 20px 5px;
+}
+#taskTitleAdd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#addNewTaskButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+.taskContainer {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid;
+}
+#tasksContainer h2 {
+  color: rgb(59, 131, 208);
+}
+.projectOfTask {
+  padding: 5px;
+}
+.taskContainer label {
+  font-size: larger;
+}
+.taskContainer .editTask,
+.taskContainer .deleteTask {
+  width: 15px;
+  height: 15px;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  background-color: white;
+}
+.taskContainer .editTask {
+  background-image: url("./images/edit.svg");
+  background-size: contain;
+}
+.taskContainer .deleteTask {
+  background-image: url("./images/trash.svg");
+  background-size: contain;
+  margin-left: 20px;
+}
+.task {
+  padding: 0 20px;
 }

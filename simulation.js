@@ -19,7 +19,6 @@ function createProjectsJSON(projectsNumber, tasksPerProject) {
       let tasks = myProject.getObject()["tasks"];
 
       tasks.push(myTask.getObject());
-      console.log("tasks: ", tasks);
 
       myProject.getObject()["tasks"] = tasks;
     }
