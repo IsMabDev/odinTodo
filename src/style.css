@@ -53,7 +53,7 @@ body {
 .project {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
 }
 .project img {
   width: 30px;
@@ -61,6 +61,9 @@ body {
 }
 .projectTitle {
   font-size: 1rem;
+}
+#asideContainer .editProject {
+  margin-left: auto;
 }
 #tasksContainer {
   background-color: white;
@@ -72,7 +75,12 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-#addNewTaskButton {
+#titleProjectContainer {
+  display: flex;
+  justify-content: space-between;
+}
+#addNewTaskButton,
+#addNewProjectButton {
   display: flex;
   align-items: center;
   border: none;
@@ -92,23 +100,29 @@ body {
 .taskContainer label {
   font-size: larger;
 }
-.taskContainer .editTask,
-.taskContainer .deleteTask {
-  width: 15px;
+.dueDate {
+  margin-left: auto;
+}
+.editTask,
+.deleteTask,
+.editProject,
+.deleteProject {
+  min-width: 15px;
   height: 15px;
   border: none;
   cursor: pointer;
-  margin-left: auto;
-  background-color: white;
-}
-.taskContainer .editTask {
-  background-image: url("./images/edit.svg");
-  background-size: contain;
-}
-.taskContainer .deleteTask {
-  background-image: url("./images/trash.svg");
-  background-size: contain;
   margin-left: 20px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.editTask,
+.editProject {
+  background-image: url("./images/edit.svg");
+}
+.deleteTask,
+.deleteProject {
+  background-image: url("./images/trash.svg");
 }
 .task {
   padding: 0 20px;

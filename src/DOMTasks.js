@@ -24,12 +24,12 @@ function createTasksContainer() {
         "h2",
         null,
         ["projectOfTask"],
-        project.getObject()["title"]
+        project["title"]
       );
       tasksContainer.appendChild(projectOfTaskscontainer);
       tasks = [];
-      if (project.getObject()["tasks"].length !== 0)
-        project.getObject()["tasks"].forEach((task) => {
+      if (project["tasks"].length !== 0)
+        project["tasks"].forEach((task) => {
           tasks.push(task);
         });
 
@@ -45,11 +45,24 @@ function createTasksContainer() {
           task["title"]
         );
 
+        const taskDueDate = createHtmlElement(
+          "h4",
+          null,
+          ["dueDate"],
+          task["dueDate"]
+        );
+
         const editTask = createHtmlElement("button", null, ["editTask"]);
 
         const deleteTask = createHtmlElement("button", null, ["deleteTask"]);
 
-        taskContainer.append(taskIsCompleted, taskTitle, editTask, deleteTask);
+        taskContainer.append(
+          taskIsCompleted,
+          taskTitle,
+          taskDueDate,
+          editTask,
+          deleteTask
+        );
 
         tasksContainer.appendChild(taskContainer);
       });

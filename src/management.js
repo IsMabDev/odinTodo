@@ -34,7 +34,8 @@ function createObject(attributes = [], values = []) {
     return attributes;
   };
   const getValues = () => {
-    return values;
+    
+    return Object.values(myObject);
   };
   const addAttribute = (newAttribute) => {
     if (!attributes.includes(newAttribute)) {
@@ -114,6 +115,7 @@ function createAttributeValue(type = "string") {
 function messageLogger(message) {
   console.log(message);
 }
+
 
 export {
   createObject,
