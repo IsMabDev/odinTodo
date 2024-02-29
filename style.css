@@ -1,0 +1,129 @@
+/* Initialisation */
+:root {
+  --font-color: #eee;
+  --font-color-dark: #aaa;
+  --border-color: #222;
+  --background-light: rgba(0, 0, 0, 50%);
+  --background-light-hover: rgba(99, 99, 99, 0.4);
+  --background-dark: rgba(0, 0, 0, 0.9);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.6;
+}
+
+body {
+  min-height: 80vh;
+}
+/* Main */
+
+#main {
+  display: flex;
+  gap: 20px;
+  min-height: 100%;
+}
+#asideContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-height: 100%;
+  background-color: #f5f6f8;
+  padding: 40px 20px;
+}
+
+#timeOrganisation li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#timeOrganisation img {
+  background-color: #ffffff;
+
+  width: 30px;
+}
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.project img {
+  width: 30px;
+  background-color: #ffffff;
+}
+.projectTitle {
+  font-size: 1rem;
+}
+#asideContainer .editProject {
+  margin-left: auto;
+}
+#tasksContainer {
+  background-color: white;
+  width: 60%;
+  padding: 20px 5px;
+}
+#taskTitleAdd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#titleProjectContainer {
+  display: flex;
+  justify-content: space-between;
+}
+#addNewTaskButton,
+#addNewProjectButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+.taskContainer {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid;
+}
+#tasksContainer h2 {
+  color: rgb(59, 131, 208);
+}
+.projectOfTask {
+  padding: 5px;
+}
+.taskContainer label {
+  font-size: larger;
+}
+.dueDate {
+  margin-left: auto;
+}
+.editTask,
+.deleteTask,
+.editProject,
+.deleteProject {
+  min-width: 15px;
+  height: 15px;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.editTask,
+.editProject {
+  background-image: url("./images/edit.svg");
+}
+.deleteTask,
+.deleteProject {
+  background-image: url("./images/trash.svg");
+}
+.task {
+  padding: 0 20px;
+}
