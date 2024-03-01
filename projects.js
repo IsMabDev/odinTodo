@@ -23,4 +23,8 @@ const createProject = (() => {
   
   return updatedList
 };
+
+const addProject=(projectList,projecttToAdd)=>{
+  projectList.push(projecttToAdd)
+}
 export { createProject,deleteProject };

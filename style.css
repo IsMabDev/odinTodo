@@ -86,7 +86,7 @@ body {
   border: none;
   cursor: pointer;
 }
-.taskContainer {
+.oneTaskContainer {
   display: flex;
   align-items: center;
   border-bottom: 1px solid;
@@ -97,7 +97,7 @@ body {
 .projectOfTask {
   padding: 5px;
 }
-.taskContainer label {
+.oneTaskContainer label {
   font-size: larger;
 }
 .dueDate {
