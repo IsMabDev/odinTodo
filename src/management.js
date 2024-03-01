@@ -1,3 +1,6 @@
+import {updateJsonProjectsList,getJsonProjects} from "./connection.js"
+import {updateProjectsContainer} from "./DOMProjects.js"
+import {updateProjectsDetails} from "./DOMTasks.js"
 function createHtmlElement(type, id, arrayClasses, content) {
   const element = document.createElement(type);
   if (id) element.id = id;
@@ -116,11 +119,17 @@ function messageLogger(message) {
   console.log(message);
 }
 
+function updateALL(projects){
+updateJsonProjectsList(projects)   
+updateProjectsContainer(getJsonProjects())
+updateProjectsDetails(getJsonProjects())
 
+}
 export {
   createObject,
   createTypes,
   createAttributeValue,
   messageLogger,
   createHtmlElement,
+  updateALL,
 };

@@ -1,12 +1,14 @@
-import { createHtmlElement } from "./management.js";
-import { getJsonProjects, updateJsonProjectsList } from "./connection.js";
+import { createHtmlElement,updateALL } from "./management.js";
+import { getJsonProjects } from "./connection.js";
 
 import { deleteProject } from "./projects.js";
 import { updateProjectsDetails, updateTasksContainer } from "./DOMTasks.js";
 
 function createProjectsContainer(projects) {
+
+  // fix containers
   const asideContainer = document.querySelector("#asideContainer");
-  const projectContainer = createHtmlElement("div", "projectsContainer");
+  const projectsContainer = createHtmlElement("div", "projectsContainer");
   const titleProjectContainer = createHtmlElement(
     "h1",
     "titleProjectContainer",
@@ -27,48 +29,61 @@ function createProjectsContainer(projects) {
 
   titleProjectContainer.appendChild(addNewProjectButton);
 
-  // update the project container
-  const updateProjectsContainer = (someProjects) => {
-    projectContainer.innerText="";
-    someProjects.forEach((project) => {
-      const projectDiv = createHtmlElement("div", null, ["project"]);
-      const projectIcon = createHtmlElement("img");
-      projectIcon.alt = ".";
-      projectIcon.src = project["icon"];
-      const projectTitle = createHtmlElement(
-        "h2",
-        null,
-        ["projectTitle"],
-        project["title"]
-      );
 
-      const editProject = createHtmlElement("button", null, ["editProject"]);
-
-      const deleteProject = createHtmlElement("button", null, [
-        
-        "deleteProject",
-      ]);
-
-      deleteProject.addEventListener("click",()=>{
-        handleDeleteProjectClick(project.projectId)
-      })
-
-      projectDiv.append(projectIcon, projectTitle, editProject, deleteProject);
-      projectContainer.append(projectDiv);
-    });
-
-    asideContainer.appendChild(projectContainer);
-  };
-  const handleDeleteProjectClick=(id)=>{
-    
-    projects=deleteProject(projects,id)
-    updateJsonProjectsList(projects)   
-    updateProjectsContainer(getJsonProjects())
-    updateProjectsDetails(getJsonProjects())
-    }
+  asideContainer.appendChild(projectsContainer);
 
   updateProjectsContainer(getJsonProjects());
 
 }
+// update the projects container
 
-export { createProjectsContainer };
+const updateProjectsContainer = (someProjects) => {
+  const projectsContainer=document.querySelector("#projectsContainer")
+  projectsContainer.innerText="";
+  someProjects.forEach((project) => {
+    const projectDiv = createHtmlElement("div", null, ["project"]);
+    const projectIcon = createHtmlElement("img");
+    projectIcon.alt = ".";
+    projectIcon.src = project["icon"];
+    const projectTitle = createHtmlElement(
+      "h2",
+      null,
+      ["projectTitle"],
+      project["title"]
+    );
+
+    const editProject = createHtmlElement("button", null, ["editProject"]);
+
+    const deleteProjectButton = createHtmlElement("button", null, [
+      
+      "deleteProject",
+    ]);
+
+
+    // Event Listeners
+    deleteProjectButton.addEventListener("click",()=>{
+      handleDeleteProjectClick(project.projectId)
+    })
+
+    addNewProjectButton.addEventListener('click',()=>{handleAddNewProjectButtonClick })
+
+
+    //handle event functions
+  const handleDeleteProjectClick=(id)=>{
+    
+    someProjects=deleteProject(someProjects,id)
+  updateALL(someProjects)
+  }
+
+const handleAddNewProjectButtonClick=()=>{
+ 
+  }
+
+
+    projectDiv.append(projectIcon, projectTitle, editProject, deleteProjectButton);
+    projectsContainer.append(projectDiv);
+  });
+
+};
+
+export { createProjectsContainer,updateProjectsContainer };
