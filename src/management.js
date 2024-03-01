@@ -120,6 +120,7 @@ function messageLogger(message) {
 }
 
 function updateALL(projects){
+  
 updateJsonProjectsList(projects)   
 updateProjectsContainer(getJsonProjects())
 updateProjectsDetails(getJsonProjects())
