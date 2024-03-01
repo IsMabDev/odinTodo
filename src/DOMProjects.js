@@ -41,8 +41,8 @@ function createProjectsContainer(projects) {
 
   asideContainer.appendChild(projectsContainer);
 
-  projects=updateProjectsContainer(projects);
-  console.log('projects: after update', projects);
+  updateProjectsContainer(projects);
+  // projects=getJsonProjects();
 
 }
 // update the projects container
