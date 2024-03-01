@@ -1,11 +1,9 @@
 import { createHtmlElement } from "./management.js";
-import { projectsObjectList } from "./connection.js";
-function createTasksContainer() {
-  let tasks = [];
+import {updateJsonProjectsList,getJsonProjects} from "./connection.js"
+function updateTasksContainer(selectedProjects) {
 
-  let projects = projectsObjectList;
-  let selectedProjects = projects;
   const mainContainer = document.querySelector("#main");
+
   const tasksContainer = createHtmlElement("div", "tasksContainer");
   const taskTitleAdd = createHtmlElement("div", "taskTitleAdd");
 
@@ -18,58 +16,74 @@ function createTasksContainer() {
   taskTitleAdd.appendChild(tasksContainerTitle);
   taskTitleAdd.appendChild(addNewTaskButton);
   tasksContainer.appendChild(taskTitleAdd);
-  function updateTaskContainer(someProjects) {
-    someProjects.forEach((project) => {
-      const projectOfTaskscontainer = createHtmlElement(
-        "h2",
-        null,
-        ["projectOfTask"],
-        project["title"]
-      );
-      tasksContainer.appendChild(projectOfTaskscontainer);
-      tasks = [];
-      if (project["tasks"].length !== 0)
-        project["tasks"].forEach((task) => {
-          tasks.push(task);
-        });
 
-      tasks.forEach((task) => {
-        const taskContainer = createHtmlElement("div", null, ["taskContainer"]);
 
-        const taskIsCompleted = createHtmlElement("input");
-        taskIsCompleted.type = "checkbox";
-        const taskTitle = createHtmlElement(
-          "label",
-          null,
-          ["task"],
-          task["title"]
-        );
-
-        const taskDueDate = createHtmlElement(
-          "h4",
-          null,
-          ["dueDate"],
-          task["dueDate"]
-        );
-
-        const editTask = createHtmlElement("button", null, ["editTask"]);
-
-        const deleteTask = createHtmlElement("button", null, ["deleteTask"]);
-
-        taskContainer.append(
-          taskIsCompleted,
-          taskTitle,
-          taskDueDate,
-          editTask,
-          deleteTask
-        );
-
-        tasksContainer.appendChild(taskContainer);
-      });
-    });
-  }
-  updateTaskContainer(selectedProjects);
+  
+ 
   mainContainer.appendChild(tasksContainer);
+  updateProjectsDetails(selectedProjects)
+}
+function updateProjectsDetails(someProjects) {
+  let  oldProjectsDetailsContainer=document.querySelector("#projectsDetailsContainer")
+  const checkTasksContainer=document.querySelector("#tasksContainer")
+
+   if(oldProjectsDetailsContainer!==null) {
+    oldProjectsDetailsContainer.innerText="";
+  } else { oldProjectsDetailsContainer=createHtmlElement("div","projectsDetailsContainer")}
+   
+  let tasks = [];
+  const projectsDetailsContainer=createHtmlElement("div","projectsDetailsContainer")
+  someProjects.forEach((project) => {
+   
+    const projectOfTaskscontainer = createHtmlElement(
+      "h2",
+      null,
+      ["projectOfTask"],
+      project["title"]
+    );
+    
+    projectsDetailsContainer.appendChild(projectOfTaskscontainer);
+    tasks = [];
+    if (project["tasks"].length !== 0)
+      project["tasks"].forEach((task) => {
+        tasks.push(task);
+      });
+    tasks.forEach((task) => {
+      const oneTaskContainer = createHtmlElement("div", null, ["oneTaskContainer"]);
+
+      const taskIsCompleted = createHtmlElement("input");
+      taskIsCompleted.type = "checkbox";
+      const taskTitle = createHtmlElement(
+        "label",
+        null,
+        ["task"],
+        task["title"]
+      );
+
+      const taskDueDate = createHtmlElement(
+        "h4",
+        null,
+        ["dueDate"],
+        task["dueDate"]
+      );
+
+      const editTask = createHtmlElement("button", null, ["editTask"]);
+
+      const deleteTask = createHtmlElement("button", null, ["deleteTask"]);
+
+      oneTaskContainer.append(
+        taskIsCompleted,
+        taskTitle,
+        taskDueDate,
+        editTask,
+        deleteTask
+      );
+     
+      projectsDetailsContainer.appendChild(oneTaskContainer);
+    });
+  });
+  oldProjectsDetailsContainer.appendChild(projectsDetailsContainer)
+  checkTasksContainer.appendChild(oldProjectsDetailsContainer)
 }
 
-export { createTasksContainer };
+export { updateTasksContainer,updateProjectsDetails };

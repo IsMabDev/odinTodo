@@ -1,11 +1,10 @@
 import { createHtmlElement } from "./management.js";
-import { projectsObjectList } from "./connection.js";
+import { getJsonProjects, updateJsonProjectsList } from "./connection.js";
 
 import { deleteProject } from "./projects.js";
+import { updateProjectsDetails, updateTasksContainer } from "./DOMTasks.js";
 
-function createProjectsContainer() {
-  let projects = projectsObjectList;
-  console.log('projects: ', projects);
+function createProjectsContainer(projects) {
   const asideContainer = document.querySelector("#asideContainer");
   const projectContainer = createHtmlElement("div", "projectsContainer");
   const titleProjectContainer = createHtmlElement(
@@ -29,9 +28,9 @@ function createProjectsContainer() {
   titleProjectContainer.appendChild(addNewProjectButton);
 
   // update the project container
-  const updateProjectsContainer = () => {
+  const updateProjectsContainer = (someProjects) => {
     projectContainer.innerText="";
-    projects.forEach((project) => {
+    someProjects.forEach((project) => {
       const projectDiv = createHtmlElement("div", null, ["project"]);
       const projectIcon = createHtmlElement("img");
       projectIcon.alt = ".";
@@ -51,13 +50,8 @@ function createProjectsContainer() {
       ]);
 
       deleteProject.addEventListener("click",()=>{
-        console.log('project.projectId: ', project.projectId);
-        handleDeleteProjectClick(project.projectId)})
-    
-      
-     
-
-      
+        handleDeleteProjectClick(project.projectId)
+      })
 
       projectDiv.append(projectIcon, projectTitle, editProject, deleteProject);
       projectContainer.append(projectDiv);
@@ -66,11 +60,14 @@ function createProjectsContainer() {
     asideContainer.appendChild(projectContainer);
   };
   const handleDeleteProjectClick=(id)=>{
-    console.log("click ok");
+    
     projects=deleteProject(projects,id)
-    updateProjectsContainer()
-  }
-  updateProjectsContainer();
+    updateJsonProjectsList(projects)   
+    updateProjectsContainer(getJsonProjects())
+    updateProjectsDetails(getJsonProjects())
+    }
+
+  updateProjectsContainer(getJsonProjects());
 
 }
 
