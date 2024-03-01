@@ -5,7 +5,7 @@ function createFakeProjects(projectsNumber, tasksPerProject) {
   let myJsonProjects = [];
   for (let i = 0; i < projectsNumber; i++) {
     let myProject = createProject();
-    myProject["title"] = `The project title is Project${i+1}`;
+    myProject["title"] = `The project title is Project${myProject.projectId}`;
     myProject["icon"] = "./images/repository.png";
     
 
