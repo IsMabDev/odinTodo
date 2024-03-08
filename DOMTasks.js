@@ -1,5 +1,8 @@
 import { createHtmlElement } from "./management.js";
 import {updateJsonProjectsList,getJsonProjects} from "./connection.js"
+import {addTaskToProject} from "./tasks.js"
+import {createFakeTask} from "./simulation.js"
+
 function updateTasksContainer(selectedProjects) {
 
   const mainContainer = document.querySelector("#main");
@@ -17,7 +20,12 @@ function updateTasksContainer(selectedProjects) {
   taskTitleAdd.appendChild(addNewTaskButton);
   tasksContainer.appendChild(taskTitleAdd);
 
+  addNewTaskButton.addEventListener("click",()=>handleAddTaskButton())
 
+  const handleAddTaskButton=()=>{
+
+    addTaskToProject(createFakeTask(),2)
+  }
   
  
   mainContainer.appendChild(tasksContainer);

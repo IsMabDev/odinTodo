@@ -1,0 +1,150 @@
+
+
+.dialog-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  padding: 20px;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  width: 100%;
+  opacity: 1;
+  pointer-events: none; /* Initially not visible or clickable */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dialog-container.active {
+  opacity: 1;
+  pointer-events: auto; /* Visible and clickable */
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.dialog-header h2 {
+  margin: 0;
+}
+
+.dialog-content {
+  margin-bottom: 10px;
+}
+
+.dialog-footer {
+  text-align: right;
+}
+
+.dialog-footer button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dialog-footer button:hover {
+  background-color: #2980b9;
+}
+
+
+/* Style for modern input fields */
+dialog input, select, dialog textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+}
+
+dialog input:focus, select:focus, dialog textarea:focus {
+  border-color: #3498db; /* Highlight border color on focus */
+}
+
+/* Additional styles for different input types */
+dialog input[type="checkbox"], dialog input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Styles for disabled inputs */
+dialog input:disabled, select:disabled, dialog textarea:disabled {
+  background-color: #f2f2f2;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Styles for validation feedback */
+dialog input:invalid, select:invalid, dialog textarea:invalid {
+  border-color: #e74c3c; /* Red border for invalid input */
+}
+
+/* Styles for valid input */
+dialog input:valid, select:valid, dialog textarea:valid {
+  border-color: #2ecc71; /* Green border for valid input */
+}
+
+/* Placeholder text color */
+::placeholder {
+  color: #999;
+}
+
+/* Style for submit button */
+button[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+
+}
+
+button[type="submit"]:hover {
+  background-color: #76c5a7;
+}
+
+
+/* Style for modern labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+
+/* Highlight label color on focus */
+input:focus + label,
+select:focus + label,
+dialog textarea:focus + label {
+  color: #3498db;
+}
+
+/* Styles for validation feedback in labels */
+dialog input:invalid + label,
+select:invalid + label,
+dialog textarea:invalid + label {
+  color: #e74c3c; /* Red color for invalid input */
+}
+
+/* Styles for valid input in labels */
+dialog input:valid + label,
+select:valid + label,
+dialog textarea:valid + label {
+  color: #2ecc71; /* Green color for valid input */
+}
+dialog textarea {
+  height: 20vh;
+}

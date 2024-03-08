@@ -1,7 +1,8 @@
 import { createProjectsContainer } from "./DOMProjects.js";
 import { updateTasksContainer } from "./DOMTasks.js";
+import { getJsonProjects, updateJsonProjectsList } from "./connection.js";
 import { createFakeProjects } from "./simulation.js";
-import { updateJsonProjectsList, getJsonProjects } from "./connection.js";
+// import styles from "./dialog-stylesheet.css"
 
 //create fake project using simulation.js
 let fakeProjectsList = createFakeProjects(2, 5);

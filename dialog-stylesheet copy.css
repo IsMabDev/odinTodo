@@ -1,0 +1,166 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  padding: 20px;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  width: 100%;
+  opacity: 0;
+  pointer-events: none; /* Initially not visible or clickable */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dialog-container.active {
+  opacity: 1;
+  pointer-events: auto; /* Visible and clickable */
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.dialog-header h2 {
+  margin: 0;
+}
+
+.dialog-content {
+  margin-bottom: 10px;
+}
+
+.dialog-footer {
+  text-align: right;
+}
+
+.dialog-footer button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dialog-footer button:hover {
+  background-color: #2980b9;
+}
+
+
+/* Style for modern input fields */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #3498db; /* Highlight border color on focus */
+}
+
+/* Additional styles for different input types */
+input[type="checkbox"], input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Styles for disabled inputs */
+input:disabled, select:disabled, textarea:disabled {
+  background-color: #f2f2f2;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Styles for validation feedback */
+input:invalid, select:invalid, textarea:invalid {
+  border-color: #e74c3c; /* Red border for invalid input */
+}
+
+/* Styles for valid input */
+input:valid, select:valid, textarea:valid {
+  border-color: #2ecc71; /* Green border for valid input */
+}
+
+/* Placeholder text color */
+::placeholder {
+  color: #999;
+}
+
+/* Style for submit button */
+button[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style for modern labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Additional styles for required labels */
+/* label[for]:after {
+  content: ' *'; /* Add an asterisk for required fields */
+  /* color: #e74c3c; Red color for asterisk */
+/* } */ 
+
+/* Highlight label color on focus */
+input:focus + label,
+select:focus + label,
+textarea:focus + label {
+  color: #3498db;
+}
+
+/* Styles for validation feedback in labels */
+input:invalid + label,
+select:invalid + label,
+textarea:invalid + label {
+  color: #e74c3c; /* Red color for invalid input */
+}
+
+/* Styles for valid input in labels */
+input:valid + label,
+select:valid + label,
+textarea:valid + label {
+  color: #2ecc71; /* Green color for valid input */
+}

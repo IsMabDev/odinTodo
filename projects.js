@@ -2,7 +2,7 @@
 const createProject = (() => {
   let projectId = 1;
 
-  return (title,description,icon,tasks=[])=> {
+  return (title,description,icon="./images/repository.png",tasks=[])=> {
     let project = {
       projectId: projectId++,
       title,

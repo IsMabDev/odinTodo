@@ -5,10 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Odin To Do List</title>
+  
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dialog-stylesheet.css">
 </head>
 
 <body>
+ 
+  <dialog id="projectDialog" class="dialogCss">
+    <h2 id="titleProjectDialog" class="dialog-header"> </h2>
+    
+    
+    <form id="formProject" method="dialog">
+      <label for="formProjectTitle">Project Title <input id="formProjectTitle" type="text"></label>
+      <label>Description <textarea id="formProjectDescription" ></textarea></label>
+      <!-- <label>An image to be used as icon <input id="formProjectIcon" type="text" required></label> -->
+      <button class="button .dialog-footer" type="submit">submit form</button>
+    </form>
+   </dialog>
   <div id="main">
     <div id="asideContainer">
       <ul id="timeOrganisation">
