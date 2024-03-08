@@ -1,8 +1,10 @@
 import { createHtmlElement,updateALL } from "./management.js";
 import { getJsonProjects } from "./connection.js";
 import { createFakeProjects } from "./simulation.js";
-import { deleteProject ,addProject} from "./projects.js";
+import { deleteProject ,addProject,createProject} from "./projects.js";
 import { updateProjectsDetails, updateTasksContainer } from "./DOMTasks.js";
+import { createNewProjectDialog,editProjectDialog } from "./DOMDialogProject.js";
+
 
 function createProjectsContainer(projects) {
 
@@ -16,33 +18,24 @@ function createProjectsContainer(projects) {
     "Lists"
   );
   asideContainer.appendChild(titleProjectContainer);
-
   const addNewProjectButton = createHtmlElement(
     "button",
     "addNewProjectButton"
   );
-
-  
   const newImage = document.createElement("img");
   newImage.src = "./images/new.svg";
   const spanNew = createHtmlElement("span", null, null, "Add new List");
   addNewProjectButton.append(newImage, spanNew);
-
   titleProjectContainer.appendChild(addNewProjectButton);
-  addNewProjectButton.addEventListener('click',()=>{handleAddNewProjectButtonClick() })
-
-  //handle events
-  const handleAddNewProjectButtonClick=()=>{
-    projects=getJsonProjects();
-    addProject(projects,createFakeProjects(1,2)[0])
-    updateALL(projects)
-   
-    }
-
   asideContainer.appendChild(projectsContainer);
+  const dialogProjectContainer= document.querySelector("#projectDialog")
 
+//events
+  addNewProjectButton.addEventListener('click', ()=>{ dialogProjectContainer.showModal()
+   }
+  )
+  createNewProjectDialog()
   updateProjectsContainer(projects);
-  // projects=getJsonProjects();
 
 }
 // update the projects container
@@ -64,34 +57,21 @@ const updateProjectsContainer = (someProjects) => {
     );
 
     const editProject = createHtmlElement("button", null, ["editProject"]);
-
-    const deleteProjectButton = createHtmlElement("button", null, [
-      
-      "deleteProject",
-    ]);
-
+    const deleteProjectButton = createHtmlElement("button", null, ["deleteProject"]);
+    projectDiv.append(projectIcon, projectTitle, editProject, deleteProjectButton);
+    projectsContainer.append(projectDiv);
 
     // Event Listeners
     deleteProjectButton.addEventListener("click",()=>{
       handleDeleteProjectClick(project.projectId)
     })
 
-
-
     //handle event functions
   const handleDeleteProjectClick=(id)=>{
-    
     someProjects=deleteProject(someProjects,id)
-  updateALL(someProjects)
+    updateALL(someProjects)
   }
-
-
-
-
-    projectDiv.append(projectIcon, projectTitle, editProject, deleteProjectButton);
-    projectsContainer.append(projectDiv);
   });
-  console.log("projects after add",someProjects);
   return someProjects
 };
 

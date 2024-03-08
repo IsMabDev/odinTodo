@@ -32,4 +32,10 @@ function createFakeProjects(projectsNumber, tasksPerProject) {
   return myJsonProjects;
 }
 
-export { createFakeProjects };
+function createFakeTask(){
+  const NewTask=createTask("My new task")
+  NewTask.dueDate="13/04/20222"
+  return NewTask
+
+}
+export { createFakeProjects,createFakeTask };

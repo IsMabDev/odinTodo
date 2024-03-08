@@ -1,6 +1,6 @@
 
 
-//create a fake projects and store it locally
+//store the project list locally
 
 function updateJsonProjectsList(projectsList){
   localStorage.setItem("jsonProjects", JSON.stringify(projectsList)); 

@@ -21,7 +21,9 @@ html {
   line-height: 1.6;
 }
 
+
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 80vh;
 }
 /* Main */
@@ -87,17 +89,22 @@ body {
   cursor: pointer;
 }
 .oneTaskContainer {
+  all:initial;
+
   display: flex;
   align-items: center;
   border-bottom: 1px solid;
 }
+
 #tasksContainer h2 {
+
   color: rgb(59, 131, 208);
 }
 .projectOfTask {
   padding: 5px;
 }
 .oneTaskContainer label {
+  all:initial;
   font-size: larger;
 }
 .dueDate {
@@ -127,3 +134,29 @@ body {
 .task {
   padding: 0 20px;
 }
+
+dialog{
+  margin: auto;
+  padding: 1vw;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  
+}
+dialog {
+  width:50vw ;
+}
+dialog > * {
+  margin: 0 0 0.5rem 0;
+}
+
+dialog::-webkit-backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+
+
